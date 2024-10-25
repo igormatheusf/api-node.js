@@ -41,8 +41,8 @@ class UsersController {
             throw new AppError("Este e-mail já está cadastrado.");
         }
 
-        user.name = name;
-        user.email = email;
+        user.name = name ?? user.name;
+        user.email = email ?? user.email;
 
         if(password && !old_password) {
             throw new AppError("Informe a senha antiga para definir uma nova.");
